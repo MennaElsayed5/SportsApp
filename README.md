@@ -1,2 +1,0 @@
-# SportsApp
-Swift Project
