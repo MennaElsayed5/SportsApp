@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OcK-zI-Giv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9To-iZ-Qk5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -31,7 +31,6 @@
                     </view>
                     <connections>
                         <outlet property="animationView" destination="Fdd-5z-0O0" id="8wz-Mx-LzU"/>
-                        <segue destination="9To-iZ-Qk5" kind="presentation" identifier="segueToNextScreen" id="AJ8-Hu-wZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b10-sa-8ZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,7 +42,7 @@
             <objects>
                 <viewController id="qdU-Qd-BW3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T0Q-XV-m2d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oIL-WA-4C0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,7 +58,7 @@
             <objects>
                 <viewController id="1Gu-Mf-8ez" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vN8-uY-jzR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oVL-Hv-wJc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
