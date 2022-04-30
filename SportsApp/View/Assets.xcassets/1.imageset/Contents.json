@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "6-4.png",
+=======
+      "filename" : "bauomy.jpeg",
+>>>>>>> Dev
       "idiom" : "universal",
       "scale" : "1x"
     },
