@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class LeaguesDetailsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
     var teams:[Teams]?
@@ -34,6 +34,8 @@ class LeaguesDetailsViewController: UIViewController,UICollectionViewDelegate,UI
             
             let cell = eventsCollection.dequeueReusableCell(withReuseIdentifier: "eventsCell", for: indexPath) as! EventsCollectionViewCell
             
+//            cell.eventNameLabl.text=events?[indexPath.row].eventNameLabl ?? ""
+//
             return cell
             
         }else if collectionView == self.resultsCollection{
@@ -46,10 +48,16 @@ class LeaguesDetailsViewController: UIViewController,UICollectionViewDelegate,UI
         }else if collectionView == self.teamsCollection{
             let  cell = teamsCollection.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamsCollectionViewCell
             
-//          cell.teamImage.kf.indicatorType = .activity
-//
-//       cell.teamImage.kf.setImage(with: URL(string: teamsArray![indexPath.row].teamImage!),placeholder: UIImage(named: "PlaceholderImg"))
+            cell.teamName.text=teams?[indexPath.row].name
             
+            cell.teamImg.sd_setImage(with: URL(string: teams![indexPath.row].imageURL), placeholderImage: UIImage(named: "profile"))
+
+//
+//            image.layer.borderWidth = 1
+//                image.layer.masksToBounds = false
+//                image.layer.borderColor = UIColor.black.cgColor
+//                image.layer.cornerRadius = image.frame.height/2
+//                image.clipsToBounds = true
             
            return cell
             
