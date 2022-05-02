@@ -110,7 +110,7 @@
 		3E17D3872817733000910F14 /* SportsApp */ = {
 			isa = PBXGroup;
 			children = (
-				3E238B5F28207CE1006796FA /* OurViewModel */,
+				3E238B5F28207CE1006796FA /* ViewModel */,
 				3EA37CF22820777F006057C8 /* Constant */,
 				3EB1D350281887B4004A7ABC /* View */,
 				3EB1D34F281887A1004A7ABC /* Model */,
@@ -122,12 +122,12 @@
 			path = SportsApp;
 			sourceTree = "<group>";
 		};
-		3E238B5F28207CE1006796FA /* OurViewModel */ = {
+		3E238B5F28207CE1006796FA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				3E238B6028207D24006796FA /* LeaguesViewModel.swift */,
 			);
-			path = OurViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3EA37CEF2820772D006057C8 /* RemoteData */ = {
