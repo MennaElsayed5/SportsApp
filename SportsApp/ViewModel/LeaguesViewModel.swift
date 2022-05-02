@@ -1,11 +1,12 @@
 //
-//  ViewModelOfLeages.swift
+//  LeaguesViewModel.swift
 //  SportsApp
 //
-//  Created by Menna on 02/05/2022.
+//  Created by Peter Samir on 02/05/2022.
 //
 
 import Foundation
+
 class LeaguesViewModel{
     
 }
