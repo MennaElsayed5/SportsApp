@@ -8,11 +8,28 @@
 import UIKit
 
 class LeaguesViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource   {
+    
+    var sportName : String?
+    var sportCountry : String?
+    
     @IBOutlet weak var tbView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tbView.delegate = self
         tbView.dataSource = self
+        
+        if let sportname = sportName {
+            
+            print(sportname)
+        }else{
+            print("nothing")
+        }
+        
+        if let sportconrty = sportCountry {
+            
+            print(sportconrty)
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
