@@ -422,6 +422,10 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="171" height="157"/>
+                                                <connections>
+                                                    <outlet property="teamImg" destination="eA8-h4-h59" id="2Ew-Gn-Xwq"/>
+                                                    <outlet property="teamName" destination="VGD-v4-89x" id="JPi-Xb-OUa"/>
+                                                </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nAi-Fv-rax" customClass="TeamsCollectionViewCell" customModule="SportsApp" customModuleProvider="target">
                                                 <rect key="frame" x="181" y="12" width="171" height="157"/>

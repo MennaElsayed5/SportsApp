@@ -2,7 +2,7 @@
 //  ResultsCollectionViewCell.swift
 //  SportsApp
 //
-//  Created by Menna on 01/05/2022.
+//  Created by Aziza on 01/05/2022.
 //
 
 import UIKit
