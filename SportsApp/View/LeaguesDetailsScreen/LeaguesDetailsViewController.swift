@@ -11,15 +11,39 @@ import Alamofire
 
 class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    var teams:[Teams]?
+    var teams:[Teams]=[Teams]()
     var events:[Events]?
+    
+    let teamsViewModel = TeamsViewModel()
+    
+    @IBOutlet weak var resultsCollection: UICollectionView!
+    @IBOutlet weak var eventsCollection: UICollectionView!
     
     @IBOutlet weak var addToFavButt: UIButton!
     
-    @IBOutlet weak var eventsCollection: UICollectionView!
-    
     @IBOutlet weak var teamsCollection: UICollectionView!
-    @IBOutlet weak var resultsCollection: UICollectionView!
+ 
+    //==========================
+    func onSuccessUpdateView(){
+        
+        teams = teamsViewModel.teamData.teams
+        self.teamsCollection.reloadData()
+        
+    }
+    //========================
+      func onFailUpdateView(){
+          
+          let alert = UIAlertController(title: "Error", message: teamsViewModel.showError, preferredStyle: .alert)
+          
+          let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+              
+          }
+          
+          alert.addAction(okAction)
+          self.present(alert, animated: true, completion: nil)
+          
+      }
+    
     //==============================================
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.eventsCollection{
@@ -27,7 +51,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
         }else if collectionView == self.resultsCollection{
             return events?.count ?? 0
         }else{
-            return teams?.count ?? 0
+            return teams.count 
         }
     }
     //==================================================
@@ -35,7 +59,8 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
         if collectionView == self.eventsCollection{
             
             let cell = eventsCollection.dequeueReusableCell(withReuseIdentifier: "eventsCell", for: indexPath) as! EventsCollectionViewCell
-            
+            cell.layer.cornerRadius = 20
+
             //            cell.eventNameLabl.text=events?[indexPath.row].eventNameLabl ?? ""
             //
             return cell
@@ -50,17 +75,10 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
         }else if collectionView == self.teamsCollection{
             let  cell = teamsCollection.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamsCollectionViewCell
             
-            cell.teamName.text=teams?[indexPath.row].strTeam
+            cell.teamName.text=teams[indexPath.row].strTeam
             
-            cell.teamImg.sd_setImage(with: URL(string: teams![indexPath.row].strTeamBanner!), placeholderImage: UIImage(named: "profile"))
-            
-            //
-            //            image.layer.borderWidth = 1
-            //                image.layer.masksToBounds = false
-            //                image.layer.borderColor = UIColor.black.cgColor
-            //                image.layer.cornerRadius = image.frame.height/2
-            //                image.clipsToBounds = true
-            
+            cell.teamImg.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBanner!), placeholderImage: UIImage(named: "profile"))
+  
             return cell
             
             
@@ -87,58 +105,43 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //getDataByAlamofire()
-        // 1
-        let request = AF.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League")
-        // 2
-        request.responseJSON { (data) in
-            
-            print(data)
-            // data as? [[String:Any]]
-//            let Json = data.result as? [[String:Any]]
-//            for i in Json {
-//
-//                let name = i["strTeam"] as! String
-//
-//                let image = i["strTeamBanner"] as! String
-//                let sTeams=Teams()
-//                sTeams.strTeam = name
-//                sTeams.strTeamBanner = image
-//                print(name)
-//                print(image)
-//                // self.teams.append(sTeams)
-//
-//            }
+        teamsViewModel.bindTeamsViewModelToView = {
+                    
+            self.onSuccessUpdateView()
             
         }
         
+        teamsViewModel.bindViewModelErrorToView = {
+                    
+            self.onFailUpdateView()
+            
+        }
+        }
         //================================================
-            func getDataByAlamofire(){
-                // get Data by Almofire library
-                Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League")
-                    .responseJSON {[self](response)-> Void in
-                        if let Json = response.result.value as? [[String:Any]]{
-                            print(Json)
-                            for i in Json {
-        
-                                let name = i["strTeam"] as! String
-        
-                                let image = i["strTeamBanner"] as! String
-                                let sTeams=Teams()
-                                sTeams.strTeam = name
-                                sTeams.strTeamBanner = image
-        
-                                self.teams.append(sTeams)
-        
-                            }
-                            DispatchQueue.main.async {
-                              //  self.tableView.reloadData()
-                            }
-        
-                        }
-        
-                    }
-        
-    }
+//            func getDataByAlamofire(){
+//                // get Data by Almofire library
+//                Alamofire.request("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League")
+//                    .responseJSON {(response)-> Void in
+//                        if let Json = response.result.value as? [[String:Any]]{
+//                            print(Json)
+//                            for i in Json {
+//
+//                                let name = i["strTeam"] as! String
+//
+//                                let image = i["strTeamBanner"] as! String
+//                                let sTeams=Teams()
+//                                sTeams.strTeam = name
+//                                sTeams.strTeamBanner = image
+//
+//                                self.teams.append(sTeams)
+//
+//                            }
+//
+//
+//                        }
+//
+//                    }
+//
+//    }
 }
-}
+

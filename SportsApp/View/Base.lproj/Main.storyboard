@@ -526,7 +526,6 @@
                                                 <size key="customSize" width="407" height="198"/>
                                                 <connections>
                                                     <outlet property="dateLabl" destination="ihI-Uo-MK3" id="ANt-gR-3j9"/>
-                                                    <outlet property="eventNameLabl" destination="r1t-X8-k8c" id="kBM-er-Xn1"/>
                                                     <outlet property="imgHomeTeam" destination="ZCy-NK-Hhm" id="9rH-Fq-DT7"/>
                                                     <outlet property="imgSecTeam" destination="tCI-nw-tpc" id="G1I-xe-3sh"/>
                                                     <outlet property="lablHometeam" destination="La9-aA-GVY" id="GIw-CB-ucd"/>
@@ -559,6 +558,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <size key="freeformSize" width="414" height="963"/>
+                    <connections>
+                        <outlet property="eventsCollection" destination="e2t-5O-gmH" id="rOq-Yo-oNL"/>
+                        <outlet property="resultsCollection" destination="sjf-fe-dbQ" id="Ias-gZ-sun"/>
+                        <outlet property="teamsCollection" destination="eKj-yx-HHo" id="4v4-g6-g86"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMM-lW-ABg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

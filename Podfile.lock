@@ -10,7 +10,7 @@ PODS:
   - SkeletonView (1.29.2)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5.2)
   - lottie-ios
   - MarqueeLabel
   - ProgressHUD
@@ -37,6 +37,6 @@ SPEC CHECKSUMS:
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: d9f8973c53155e0ab255d695ffdfe7feaae6fd27
+PODFILE CHECKSUM: f0dce6776b699ea3756afda141c456c6fe578bb3
 
 COCOAPODS: 1.11.3
