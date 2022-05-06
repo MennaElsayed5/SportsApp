@@ -8,5 +8,5 @@
 import UIKit
 
 class Events: NSObject {
-
+    var label:String?
 }
