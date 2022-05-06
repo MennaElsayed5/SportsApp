@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vxt-bw-KmA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9To-iZ-Qk5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -150,18 +150,12 @@
                                                         <constraint firstAttribute="width" constant="70" id="4jj-Ca-RCJ"/>
                                                         <constraint firstAttribute="height" constant="70" id="jMi-mv-lvk"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YFP-lN-aOm">
                                                     <rect key="frame" x="100" y="64" width="237.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-D8-fZN">
                                                     <rect key="frame" x="342.5" y="61" width="30" height="30"/>
@@ -170,9 +164,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="hk6-C9-33w"/>
                                                     </constraints>
                                                     <state key="normal" image="youtube" backgroundImage="youtube"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -185,9 +176,6 @@
                                                 <constraint firstItem="YFP-lN-aOm" firstAttribute="leading" secondItem="UGk-yi-XX7" secondAttribute="trailing" constant="10" id="zMz-I5-BCc"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="YoutubeBtn" destination="VRm-D8-fZN" id="bxA-rR-IVK"/>
                                             <outlet property="imgView" destination="UGk-yi-XX7" id="qTW-wF-eqc"/>
@@ -195,9 +183,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Vxt-bw-KmA" id="Zdb-Mg-new"/>
                                     <outlet property="delegate" destination="Vxt-bw-KmA" id="fMs-Xr-42f"/>
