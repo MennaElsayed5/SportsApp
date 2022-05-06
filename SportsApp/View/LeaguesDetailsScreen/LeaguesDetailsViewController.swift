@@ -8,7 +8,7 @@
 import UIKit
 
 class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+    var countries : Country!
     var teams:[Teams]?
     var events:[Events]?
     

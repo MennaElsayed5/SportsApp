@@ -13,4 +13,5 @@ struct apiCallData: Codable {
 struct Leagues: Codable {
     let idLeague, strLeague: String?
     let strSport: String?
+    let strCountry: String?
 }
