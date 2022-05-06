@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5r-iJ-Y1X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vxt-bw-KmA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -150,12 +150,18 @@
                                                         <constraint firstAttribute="width" constant="70" id="4jj-Ca-RCJ"/>
                                                         <constraint firstAttribute="height" constant="70" id="jMi-mv-lvk"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YFP-lN-aOm">
                                                     <rect key="frame" x="100" y="64" width="237.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-D8-fZN">
                                                     <rect key="frame" x="342.5" y="61" width="30" height="30"/>
@@ -164,6 +170,9 @@
                                                         <constraint firstAttribute="width" constant="30" id="hk6-C9-33w"/>
                                                     </constraints>
                                                     <state key="normal" image="youtube" backgroundImage="youtube"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -176,6 +185,9 @@
                                                 <constraint firstItem="YFP-lN-aOm" firstAttribute="leading" secondItem="UGk-yi-XX7" secondAttribute="trailing" constant="10" id="zMz-I5-BCc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="YoutubeBtn" destination="VRm-D8-fZN" id="bxA-rR-IVK"/>
                                             <outlet property="imgView" destination="UGk-yi-XX7" id="qTW-wF-eqc"/>
@@ -187,8 +199,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Vxt-bw-KmA" id="SVi-Fx-dU8"/>
-                                    <outlet property="delegate" destination="Vxt-bw-KmA" id="5AC-od-iRH"/>
+                                    <outlet property="dataSource" destination="Vxt-bw-KmA" id="Zdb-Mg-new"/>
+                                    <outlet property="delegate" destination="Vxt-bw-KmA" id="fMs-Xr-42f"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -201,13 +213,15 @@
                             <constraint firstItem="yDa-Gd-HyS" firstAttribute="trailing" secondItem="fBk-0h-n24" secondAttribute="trailing" id="xdm-0N-BBc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RmH-uN-crB"/>
                     <connections>
                         <outlet property="tbView" destination="fBk-0h-n24" id="Bsc-OC-KsP"/>
+                        <segue destination="t5r-iJ-Y1X" kind="showDetail" identifier="ShowDetails" id="Qth-2a-8xq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIx-A1-miU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="-530"/>
+            <point key="canvasLocation" x="2397.1014492753625" y="-595.3125"/>
         </scene>
         <!--Fav Table View Controller-->
         <scene sceneID="yQE-cK-1oH">
@@ -278,9 +292,9 @@
         <!--Leagues Details View Controller-->
         <scene sceneID="gap-Gf-f7j">
             <objects>
-                <viewController id="t5r-iJ-Y1X" customClass="LeaguesDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeaguesDetailsVC" id="t5r-iJ-Y1X" customClass="LeaguesDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxj-m0-yDJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="963"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="909"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXB-Ul-Fdx">
@@ -715,7 +729,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NU-oo-dMY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4421.739130434783" y="-431.25"/>
+            <point key="canvasLocation" x="5331.884057971015" y="-431.25"/>
         </scene>
     </scenes>
     <resources>
