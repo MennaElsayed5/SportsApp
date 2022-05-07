@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 class LeaguesViewModel: NSObject{
-    var leaguesService :NetworkService!
-    var leaguesVC : LeaguesViewController!
-
+    var leaguesService : NetworkService!
+    var sportsCountry : SportAndCountry!
     var dataOfLeagues :[Country]!{
         didSet{
             self.bindinLeaguesData()
@@ -42,11 +41,12 @@ class LeaguesViewModel: NSObject{
     override init() {
         super.init()
     leaguesService = NetworkService()
-    leaguesVC = LeaguesViewController()
-    self.featchLeaguesBySportsAndCountry()
+  //  self.featchLeaguesBySportsAndCountry()
     }
     func featchLeaguesBySportsAndCountry(){
-        leaguesService.getLeaguesAPIByCountry(country: leaguesVC.strCountry, sport: leaguesVC.strSport, completion: {(sportsData ,error) in
+        guard let var1 = sportsCountry else {return}
+        print(var1.strSport!)
+        leaguesService.getLeaguesAPIByCountry(country:var1.strCountry!, sport:var1.strSport!, completion: {(sportsData ,error) in
             if let err: Error = error{
                 let msg = err.localizedDescription
                 self.connectionError = msg

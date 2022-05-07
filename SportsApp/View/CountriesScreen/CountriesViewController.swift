@@ -9,7 +9,8 @@ import UIKit
 
 class CountriesViewController: UIViewController {
 
-    var sportName : String?
+    var sportName : String!
+    var sportsCountry : SportAndCountry!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,27 +32,30 @@ class CountriesViewController: UIViewController {
     func navToLeagues(sportCountry:String){
 
         let mLeagues:LeaguesViewController = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesTableViewController") as! LeaguesViewController
-        mLeagues.sportCountry = sportCountry
-        mLeagues.sportName = sportName
-    
-       self.navigationController?.pushViewController(mLeagues, animated: true)
+//        mLeagues.sportCountry = sportCountry
+//        mLeagues.sportName = sportName!
+        mLeagues.sportsCountry = SportAndCountry(strSport: sportName, strCountry: sportCountry)
+    //    print(sportName!)
+        //        print(sportCountry)
+//
+      self.navigationController?.pushViewController(mLeagues, animated: true)
     }
     
     
     @IBAction func egyptBtn(_ sender: Any) {
     
-        navToLeagues(sportCountry: "egypt")
+        navToLeagues(sportCountry: "Egypt")
         
     }
     
     @IBAction func spainBtn(_ sender: Any) {
     
-        navToLeagues(sportCountry: "spain")
+        navToLeagues(sportCountry: "Spain")
        
     }
     @IBAction func englandBtn(_ sender: Any) {
 
-        navToLeagues(sportCountry: "england")
+        navToLeagues(sportCountry: "England")
         
     }
 }

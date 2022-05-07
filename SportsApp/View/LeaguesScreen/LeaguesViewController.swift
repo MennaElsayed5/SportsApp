@@ -6,12 +6,6 @@
 //
 
 import UIKit
-
-class LeaguesViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource   {
-    
-    var sportName : String?
-    var sportCountry : String?
-    
 import Alamofire
 import SDWebImage
 import SkeletonView
@@ -19,9 +13,18 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
     @IBOutlet weak var tbView: UITableView!
     let webService = NetworkService()
     var country : [Country] = [Country]()
-    var strSport = "Soccer"
-    var strCountry = "England"
-    var viewModel:LeaguesViewModel!
+    var sportsCountry : SportAndCountry!
+//    var strSport = "Soccer"
+//  var strCountry = "England"
+    var viewModel:LeaguesViewModel!{
+        didSet{
+            guard let var1 = sportsCountry else {return}
+            viewModel.sportsCountry = var1
+            viewModel.featchLeaguesBySportsAndCountry()
+//            print(var1.strSport!)
+//            print(var1.strCountry!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,7 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
         tbView.showAnimatedGradientSkeleton()
         viewModel = LeaguesViewModel()
         prepereData()
+
     }
  
     func prepereData(){

@@ -13,6 +13,7 @@ class SportsCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     var sports : [Sports] = [Sports]()
+//    var selecteSports : [Sports]
     var sportsViewModel = SportsViewModel()
     let reachability = try! Reachability()
     
