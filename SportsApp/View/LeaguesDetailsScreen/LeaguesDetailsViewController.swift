@@ -197,6 +197,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
             
         }
        
+       
         
         return UICollectionViewCell()
     }
