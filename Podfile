@@ -11,5 +11,5 @@ pod 'ReachabilitySwift'
 pod 'MarqueeLabel'
 pod 'SkeletonView'
 pod 'ProgressHUD'
-
+pod 'SwiftMessages'
 end

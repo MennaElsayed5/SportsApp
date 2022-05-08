@@ -28,6 +28,8 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem?.tintColor = .darkClouds
+        
         tbView.delegate = self
         tbView.isSkeletonable = true
         tbView.showAnimatedGradientSkeleton()

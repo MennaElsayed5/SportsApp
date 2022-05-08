@@ -24,7 +24,7 @@ class SportsCollectionViewController: UICollectionViewController, UICollectionVi
             let iv = UIImageView()
             iv.image = UIImage(named:"no-internet")
             iv.contentMode = .scaleAspectFit
-            
+            self.tabBarController?.tabBar.barTintColor = .darkClouds
             return iv
         }()
        
