@@ -278,7 +278,7 @@
         <!--Leagues Details View Controller-->
         <scene sceneID="gap-Gf-f7j">
             <objects>
-                <viewController id="t5r-iJ-Y1X" customClass="LeaguesDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="t5r-iJ-Y1X" customClass="LeaguesDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gxj-m0-yDJ">
                         <rect key="frame" x="0.0" y="0.0" width="421" height="950"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
