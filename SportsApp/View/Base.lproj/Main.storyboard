@@ -62,7 +62,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m6d-tv-tlT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.19571608300000001" green="0.2192384899" blue="0.2273537517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.19607843137254902" green="0.2196078431372549" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.18909642100334167" green="0.41978764533996582" blue="0.33092406392097473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -84,7 +84,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-0h-n24">
                                 <rect key="frame" x="0.0" y="64" width="414" height="798"/>
-                                <color key="backgroundColor" red="0.18893069030000001" green="0.4200111628" blue="0.332441926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.41960784313725491" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="152" id="FTX-Gh-bmA" customClass="LeaguesTableViewCell" customModule="SportsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="152"/>
@@ -99,12 +99,18 @@
                                                         <constraint firstAttribute="width" constant="70" id="4jj-Ca-RCJ"/>
                                                         <constraint firstAttribute="height" constant="70" id="jMi-mv-lvk"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YFP-lN-aOm">
                                                     <rect key="frame" x="100" y="64" width="237.5" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-D8-fZN">
                                                     <rect key="frame" x="342.5" y="61" width="30" height="30"/>
@@ -124,8 +130,14 @@
                                                 <constraint firstItem="VRm-D8-fZN" firstAttribute="centerY" secondItem="UGk-yi-XX7" secondAttribute="centerY" id="qzE-NH-tSr"/>
                                                 <constraint firstItem="YFP-lN-aOm" firstAttribute="leading" secondItem="UGk-yi-XX7" secondAttribute="trailing" constant="10" id="zMz-I5-BCc"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.18893069030000001" green="0.4200111628" blue="0.332441926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="YoutubeBtn" destination="VRm-D8-fZN" id="bxA-rR-IVK"/>
                                             <outlet property="imgView" destination="UGk-yi-XX7" id="qTW-wF-eqc"/>
@@ -150,6 +162,9 @@
                             <constraint firstItem="yDa-Gd-HyS" firstAttribute="bottom" secondItem="fBk-0h-n24" secondAttribute="bottom" id="og4-tJ-jwD"/>
                             <constraint firstItem="yDa-Gd-HyS" firstAttribute="trailing" secondItem="fBk-0h-n24" secondAttribute="trailing" id="xdm-0N-BBc"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="tbView" destination="fBk-0h-n24" id="Bsc-OC-KsP"/>
@@ -208,7 +223,7 @@
                                         <constraint firstItem="5H4-TY-tpr" firstAttribute="centerY" secondItem="HX7-CA-QNS" secondAttribute="centerY" id="xLu-n7-wjD"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.21644058820000001" green="0.46261477470000001" blue="0.33873349429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.21568627450980393" green="0.46274509803921571" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="YiutubeBtn" destination="t8o-d6-PcA" id="Bb7-Ic-jxH"/>
                                     <outlet property="imgView" destination="5H4-TY-tpr" id="Ixg-Qa-ggB"/>
