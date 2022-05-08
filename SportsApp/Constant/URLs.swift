@@ -21,6 +21,7 @@ struct URLs{
     
     //https://www.thesportsdb.com/api/v1/json/2/eventsround.php?id=4328&strLeague=EFL20%Trophy&r=35&s=2021-2022
   
+    
     //Events
     public static var getEventsListURL : String =
     

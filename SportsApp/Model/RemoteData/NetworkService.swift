@@ -28,6 +28,8 @@ class NetworkService {
             }
     }
     
+    
+    
     //==========================================
 //    func fetchEventsData(id:String ,r:String,s:String ,completion : @escaping (AllEvents?, Error?)->()){
 //      AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))

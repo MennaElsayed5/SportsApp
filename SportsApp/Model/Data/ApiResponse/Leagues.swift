@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct apiCallData: Codable {
     let leagues: [Leagues]?
 }

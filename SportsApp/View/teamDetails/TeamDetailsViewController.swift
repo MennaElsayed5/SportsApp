@@ -23,6 +23,7 @@ class TeamDetailsViewController: UIViewController {
         stadiumImgV.image = UIImage(named: "stadium")
         jerseyImgV.image = UIImage(named: "jersey")
         
+        
         view.addSubview(scrollView)
         scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)

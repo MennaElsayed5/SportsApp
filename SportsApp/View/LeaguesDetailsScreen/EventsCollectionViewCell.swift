@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class EventsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var eventDate: UILabel!

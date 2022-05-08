@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ResultsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var resultTime: UILabel!
