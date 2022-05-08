@@ -8,7 +8,7 @@
 import UIKit
 
 class AllResult : Codable{
-    let result : [Results]
+    let events : [Results]
 }
 class Results: Codable {
     

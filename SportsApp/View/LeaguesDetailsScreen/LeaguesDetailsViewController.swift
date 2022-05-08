@@ -51,7 +51,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     //==========================
     func onSuccessResultsUpdateView(){
         
-        results = resultsViewModel.resultData.result
+        results = resultsViewModel.resultData.events
         self.resultsCollection.reloadData()
         
     }
@@ -96,9 +96,9 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
  
             switch collectionView {
             case eventsCollection:
-                return CGSize(width: 370, height: 240)
+                return CGSize(width: 375, height: 190)
             case resultsCollection:
-                return CGSize(width: 184, height: 98)
+                return CGSize(width: 380, height: 107)
             case teamsCollection:
                 return CGSize(width: 145, height: 150)
             default:
@@ -226,9 +226,10 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(scrollView)
+    
                scrollView.isScrollEnabled = true
-               scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2300)
+        view.addSubview(scrollView)
         
         self.teamsCollection.delegate=self
         self.teamsCollection.dataSource=self

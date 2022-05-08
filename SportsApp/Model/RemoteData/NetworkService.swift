@@ -51,7 +51,7 @@ class NetworkService {
                     guard let eventsData = response.value else { return }
                     
                     completion(eventsData,nil)
-                    print(eventsData.result.count)
+                    print(eventsData.events.count)
                     
                 case .failure(let error):
                     print("faillll")
