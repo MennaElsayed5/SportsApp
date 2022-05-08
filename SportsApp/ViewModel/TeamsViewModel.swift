@@ -10,6 +10,7 @@ import UIKit
 class TeamsViewModel: NSObject {
     
     var networkService :NetworkService!
+   // var teams :Teams
     
     var teamData :AllTeams! {
         didSet{
@@ -23,14 +24,14 @@ class TeamsViewModel: NSObject {
         
         didSet{
             
-            self.bindViewModelErrorToView()
+            self.bindTeamsViewModelErrorToView()
         }
         
     }
     
     //============================================
     var bindTeamsViewModelToView : (()->()) = {}
-    var bindViewModelErrorToView : (()->()) = {}
+    var bindTeamsViewModelErrorToView : (()->()) = {}
   //==================================================
     override init() {
         
@@ -40,7 +41,7 @@ class TeamsViewModel: NSObject {
     }
 //==================================================
     func fetchTeamDataFromAPI (){
-        
+        //leaguesService.getLeaguesAPIByCountry(country: leaguesVC.strCountry, sport: leaguesVC.strSport, completion: {(sportsData ,error)
         networkService.fetchTeamsData(completion: { (teamData, error) in
             
             if let error : Error = error{

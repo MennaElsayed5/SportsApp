@@ -1,19 +1,19 @@
 //
-//  EventsViewModel.swift
+//  ResultsViewModel.swift
 //  SportsApp
 //
-//  Created by Aziza on 04/05/2022.
+//  Created by Aziza on 06/05/2022.
 //
 
 import UIKit
 
-class EventsViewModel: NSObject {
+class ResultsViewModel: NSObject {
     var networkService :NetworkService!
     
-    var eventData :AllEvents!{
+    var resultData :AllResult! {
         didSet{
             
-            self.bindEventsViewModelToView()
+            self.bindResultsViewModelToView()
         }
         
     }
@@ -22,25 +22,25 @@ class EventsViewModel: NSObject {
         
         didSet{
             
-            self.bindEventsViewModelErrorToView()
+            self.bindResultsViewModelErrorToView()
         }
         
     }
     
     //============================================
-    var bindEventsViewModelToView : (()->()) = {}
-    var bindEventsViewModelErrorToView : (()->()) = {}
+    var bindResultsViewModelToView : (()->()) = {}
+    var bindResultsViewModelErrorToView : (()->()) = {}
   //==================================================
     override init() {
         
-        super.init()
+        super .init()
         self.networkService = NetworkService()
-        self.fetchEventDataFromAPI()
+        self.fetchResultsDataFromAPI()
     }
 //==================================================
-    func fetchEventDataFromAPI (){
+    func fetchResultsDataFromAPI (){
         
-        networkService.fetchEventsData(completion: { (eventData, error) in
+        networkService.fetchResultsData(completion: { (resultsData, error) in
             
             if let error : Error = error{
                 
@@ -49,7 +49,7 @@ class EventsViewModel: NSObject {
                 print(message)
             }else{
                 
-                self.eventData = eventData
+                self.resultData = resultsData
                 
             }
            

@@ -10,26 +10,51 @@ import Alamofire
 
 class NetworkService {
     
+    //==========================================
+      func fetchEventsData(completion : @escaping (AllEvents?, Error?)->()){
+
+          AF.request(URLs.getEventsListURL)
+              .validate()
+              .responseDecodable(of: AllEvents.self) { (response) in
+                  
+                  print("before ....")
+                  switch response.result {
+                  
+                  case .success( _):
+                      
+                      guard let eventsData = response.value else { return }
+
+                      completion(eventsData,nil)
+                      print("event sizzzzzzzzzzze\(eventsData.events.count)")
+                      
+                  case .failure(let error):
+                      print(" Events faillll")
+                      completion(nil , error)
+                      
+                  }
+              }
+      }
+   //==============================================================
     
-    
-    
-    func fetchEventsData(completion : @escaping (Events?, Error?)->()){
+    func fetchResultsData(completion : @escaping (AllResult?, Error?)->()){
         
         
         AF.request(URLs.getResultsListURL)
             .validate()
-            .responseDecodable(of: Events.self) { (response) in
-                switch response.result {
+            .responseDecodable(of: AllResult.self) { (response) in
+                print("befor result......")
                 
+                switch response.result {
+               
                 case .success( _):
                     
                     guard let eventsData = response.value else { return }
                     
                     completion(eventsData,nil)
-                    print(eventsData.strHomeTeam)
+                    print(eventsData.result.count)
                     
                 case .failure(let error):
-                    
+                    print("faillll")
                     completion(nil , error)               
                     
                 }
@@ -39,7 +64,9 @@ class NetworkService {
   //==========================================
     func fetchTeamsData(completion : @escaping (AllTeams?, Error?)->()){
         
-        
+        //          func getLeaguesAPIByCountry(country: String, sport: String, completion : @escaping([Country]? , Error?)-> Void)
+        //             {
+                  //AF.request(URLs.leaguesUrl.appending("?c=\(country)&s=\(sport)"))
         AF.request(URLs.getTeamsListURL)
             .validate()
             .responseDecodable(of: AllTeams.self) { (response) in

@@ -32,22 +32,22 @@ open class AnimatedButton: AnimatedControl {
   // MARK: Public
 
   /// Sets the play range for the given UIControlEvent.
-  public func setPlayRange(fromProgress: AnimationProgressTime, toProgress: AnimationProgressTime, event: UIControl.Event) {
-    rangesForEvents[event.rawValue] = (from: fromProgress, to: toProgress)
+  public func setPlayRange(fromProgress: AnimationProgressTime, toProgress: AnimationProgressTime, result: UIControl.Event) {
+    rangesForEvents[result.rawValue] = (from: fromProgress, to: toProgress)
   }
 
   /// Sets the play range for the given UIControlEvent.
-  public func setPlayRange(fromMarker fromName: String, toMarker toName: String, event: UIControl.Event) {
+  public func setPlayRange(fromMarker fromName: String, toMarker toName: String, result: UIControl.Event) {
     if
       let start = animationView.progressTime(forMarker: fromName),
       let end = animationView.progressTime(forMarker: toName)
     {
-      rangesForEvents[event.rawValue] = (from: start, to: end)
+      rangesForEvents[result.rawValue] = (from: start, to: end)
     }
   }
 
-  public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-    let _ = super.beginTracking(touch, with: event)
+  public override func beginTracking(_ touch: UITouch, with result: UIEvent?) -> Bool {
+    let _ = super.beginTracking(touch, with: result)
     let touchEvent = UIControl.Event.touchDown
     if let playrange = rangesForEvents[touchEvent.rawValue] {
       animationView.play(fromProgress: playrange.from, toProgress: playrange.to, loopMode: LottieLoopMode.playOnce)
@@ -55,8 +55,8 @@ open class AnimatedButton: AnimatedControl {
     return true
   }
 
-  public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-    super.endTracking(touch, with: event)
+  public override func endTracking(_ touch: UITouch?, with result: UIEvent?) {
+    super.endTracking(touch, with: result)
     let touchEvent: UIControl.Event
     if let touch = touch, bounds.contains(touch.location(in: self)) {
       touchEvent = UIControl.Event.touchUpInside

@@ -15,6 +15,9 @@ class TeamDetailsViewController: UIViewController {
     @IBOutlet weak var myCard: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var jerseyImgV: UIImageView!
+    
+    var teamsDetails:Teams?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
