@@ -130,9 +130,12 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsVc = self.storyboard?.instantiateViewController(identifier: "LeaguesDetailsVC") as! LeaguesDetailsViewController
-        detailsVc.countries = country[indexPath.row]
-        self.performSegue(withIdentifier: "ShowDetails", sender:self)
+        let detailsVc = self.storyboard?.instantiateViewController(identifier: "LeaguesDetailsViewController") as! LeaguesDetailsViewController
+        
+        //detailsVc.countries = country[indexPath.row]
+        
+        self.performSegue(withIdentifier: "Details", sender:self)
+        
 
     }
   

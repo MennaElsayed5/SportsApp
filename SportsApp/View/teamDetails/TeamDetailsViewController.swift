@@ -7,7 +7,7 @@
 
 import UIKit
 class TeamDetailsViewController: UIViewController {
-
+    var teamsDetails:Teams?
     @IBOutlet weak var stadiumImgV: UIImageView!
     @IBOutlet weak var logoImgV: UIImageView!
     @IBOutlet weak var txtViewHeight:NSLayoutConstraint!
@@ -18,7 +18,7 @@ class TeamDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(teamsDetails?.strCountry)
         logoImgV.image = UIImage(named: "alahlyLogo")
         stadiumImgV.image = UIImage(named: "stadium")
         jerseyImgV.image = UIImage(named: "jersey")
