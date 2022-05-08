@@ -41,8 +41,10 @@ class TeamsViewModel: NSObject {
     }
 //==================================================
     func fetchTeamDataFromAPI (){
-        //leaguesService.getLeaguesAPIByCountry(country: leaguesVC.strCountry, sport: leaguesVC.strSport, completion: {(sportsData ,error)
-        networkService.fetchTeamsData(completion: { (teamData, error) in
+        //  guard let var1 = sportsCountry else {return}
+       //print(var1.strSport!)
+    
+        networkService.fetchTeamsData(league:"English%20League%201",completion: { (teamData, error) in
             
             if let error : Error = error{
                 

@@ -11,9 +11,12 @@ import Alamofire
 class NetworkService {
     
     //==========================================
-      func fetchEventsData(completion : @escaping (AllEvents?, Error?)->()){
-
+//    func fetchEventsData(id:String ,r:String,s:String ,completion : @escaping (AllEvents?, Error?)->()){
+//      AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+     func fetchEventsData(completion : @escaping (AllEvents?, Error?)->()){
+     //  AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
           AF.request(URLs.getEventsListURL)
+        
               .validate()
               .responseDecodable(of: AllEvents.self) { (response) in
                   
@@ -35,15 +38,19 @@ class NetworkService {
               }
       }
    //==============================================================
-    
+    //id=4328&r=35&s=2021-2022
+  //&strLeague=EFL20%Trophy
+//    func fetchResultsData(id:String ,r:String,s:String ,completion : @escaping (AllResult?, Error?)->()){
+//
+//         AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
     func fetchResultsData(completion : @escaping (AllResult?, Error?)->()){
         
-        
-        AF.request(URLs.getResultsListURL)
+        // AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+       AF.request(URLs.getResultsListURL)
             .validate()
             .responseDecodable(of: AllResult.self) { (response) in
                 print("befor result......")
-                
+             
                 switch response.result {
                
                 case .success( _):
@@ -55,6 +62,9 @@ class NetworkService {
                     
                 case .failure(let error):
                     print("faillll")
+                    if let data = response.data, let str = String(data: data, encoding: String.Encoding.utf8){
+                               print("Server Error: " + str)
+                           }
                     completion(nil , error)               
                     
                 }
@@ -62,12 +72,9 @@ class NetworkService {
     }
     
   //==========================================
-    func fetchTeamsData(completion : @escaping (AllTeams?, Error?)->()){
-        
-        //          func getLeaguesAPIByCountry(country: String, sport: String, completion : @escaping([Country]? , Error?)-> Void)
-        //             {
-                  //AF.request(URLs.leaguesUrl.appending("?c=\(country)&s=\(sport)"))
-        AF.request(URLs.getTeamsListURL)
+    func fetchTeamsData(league:String ,completion : @escaping (AllTeams?, Error?)->()){
+    
+        AF.request(URLs.getTeamsListURL.appending("?l=\(league)"))
             .validate()
             .responseDecodable(of: AllTeams.self) { (response) in
                 switch response.result {

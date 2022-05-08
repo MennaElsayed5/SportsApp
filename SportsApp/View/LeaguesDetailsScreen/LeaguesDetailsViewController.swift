@@ -174,11 +174,13 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
             cell.teamName.text=teams[indexPath.row].strTeam
             
             cell.teamImg.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBanner!), placeholderImage: UIImage(named: "profile"))
-//            cell.teamImg.layer.borderWidth = 1
-//            cell.teamImg.layer.masksToBounds = false
-//            cell.teamImg.layer.borderColor = UIColor.black.cgColor
-//            cell.teamImg.layer.cornerRadius =  cell.teamImg.frame.height/2
-//            cell.teamImg.clipsToBounds = true
+            
+            cell.teamImg.layer.borderWidth = 1
+            cell.teamImg.layer.masksToBounds = false
+            cell.teamImg.layer.borderColor = UIColor.black.cgColor
+            cell.teamImg.layer.cornerRadius =  cell.teamImg.frame.height/2
+            cell.teamImg.clipsToBounds = true
+            
             cell.layer.cornerRadius = 20
             cell.layer.masksToBounds = true
             cell.layer.borderWidth = 1
@@ -214,8 +216,10 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
       
         if collectionView == self.teamsCollection{
             print("team Clicked")
+            
             let teamsDetails:TeamDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "TeamDetailsViewController") as! TeamDetailsViewController
-            teamsDetails.teamsDetails = Teams()
+            
+            teamsDetails.teamsDetails = teams[indexPath.row]
         
         
                    
@@ -228,7 +232,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
         
     
                scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2300)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1700)
         view.addSubview(scrollView)
         
         self.teamsCollection.delegate=self

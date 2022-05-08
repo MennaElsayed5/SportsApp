@@ -20,7 +20,7 @@ class TeamDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       print(teamsDetails?.strCountry)
         logoImgV.image = UIImage(named: "alahlyLogo")
         stadiumImgV.image = UIImage(named: "stadium")
         jerseyImgV.image = UIImage(named: "jersey")

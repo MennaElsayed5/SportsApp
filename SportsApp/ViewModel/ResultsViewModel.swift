@@ -39,8 +39,11 @@ class ResultsViewModel: NSObject {
     }
 //==================================================
     func fetchResultsDataFromAPI (){
-        
+     //id=4328&r=35&s=2021-2022
+        //  //&strLeague=EFL20%Trophy
+//        networkService.fetchResultsData(id:"1154268",r:"35",s:"2021-2022", completion: { (resultsData, error) in
         networkService.fetchResultsData(completion: { (resultsData, error) in
+
             
             if let error : Error = error{
                 
