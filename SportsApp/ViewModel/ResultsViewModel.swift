@@ -5,6 +5,7 @@
 //  Created by Aziza on 06/05/2022.
 //
 
+
 import UIKit
 
 class ResultsViewModel: NSObject {

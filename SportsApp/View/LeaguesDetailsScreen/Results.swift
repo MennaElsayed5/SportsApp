@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class AllResult : Codable{
     let events : [Results]
 }

@@ -5,6 +5,7 @@
 //  Created by Aziza on 07/05/2022.
 //
 
+
 import UIKit
 class AllEvents : Codable{
     let events : [Events]
