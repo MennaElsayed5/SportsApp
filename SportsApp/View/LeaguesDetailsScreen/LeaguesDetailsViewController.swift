@@ -10,8 +10,6 @@ import UIKit
 class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
     var countries : Country!
     var teams:[Teams]?
-    var events:[Events]?
-    
     @IBOutlet weak var addToFavButt: UIButton!
     
     @IBOutlet weak var eventsCollection: UICollectionView!
@@ -20,13 +18,9 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     @IBOutlet weak var resultsCollection: UICollectionView!
 //==============================================
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.eventsCollection{
-            return events?.count ?? 0
-        }else if collectionView == self.resultsCollection{
-            return events?.count ?? 0
-        }else{
-            return teams?.count ?? 0
-        }
+       
+        return teams?.count ?? 0
+        
     }
  //==================================================
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
