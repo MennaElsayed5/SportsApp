@@ -26,5 +26,6 @@ class FavTableViewCell: UITableViewCell {
     func setUpCell(str:String, img:String){
         txtFavLeague.text = str
         imgView.image = UIImage(named: img)
+        
     }
 }

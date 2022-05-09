@@ -64,6 +64,14 @@ class FavTableViewController: UITableViewController {
             cell.setUpCell(str: name, img: img)
             let url = URL(string: img)
                     cell.imgView.kf.setImage(with: url)
+            cell.YiutubeBtn.accessibilityValue = arr[indexPath.row].leagueUrl
+            if arr[indexPath.row].leagueUrl == ""{
+                        cell.YiutubeBtn.isHidden = true
+                    }else{
+                        cell.YiutubeBtn.isHidden = false
+                    }
+//            cell.YiutubeBtn.isHidden = false
+            cell.YiutubeBtn.addTarget(self, action: #selector(self.youtubeTapped), for: .touchUpInside)
         }
        return cell
     }
@@ -118,6 +126,21 @@ class FavTableViewController: UITableViewController {
     
     deinit{
 //        reachability.stopNotifier()
+    }
+    
+    @objc func youtubeTapped(sender:UIButton){
+        let url = sender.accessibilityValue!
+        self.openInYoutube(url: url)
+    }
+    
+    
+    @objc func openInYoutube(url:String){
+        let app = UIApplication.shared
+        if app.canOpenURL(URL(string: url)!){
+            app.open(URL(string: url)!)
+        }else {
+            app.open(URL(string: "https://\(url)")!)
+        }
     }
      
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

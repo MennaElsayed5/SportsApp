@@ -120,11 +120,10 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
 //        cell.imgView.sd_imageIndicator?.startAnimatingIndicator()
         cell.YoutubeBtn.accessibilityValue = country[indexPath.row].strYoutube
         if country[indexPath.row].strYoutube == ""{
-                    cell.YoutubeBtn.isEnabled = false
+                    cell.YoutubeBtn.isHidden = true
                 }else{
-                    cell.YoutubeBtn.isEnabled = true
+                    cell.YoutubeBtn.isHidden = false
                 }
-        cell.YoutubeBtn.isHidden = false
         cell.YoutubeBtn.addTarget(self, action: #selector(self.youtubeTapped), for: .touchUpInside)
         
         return cell
