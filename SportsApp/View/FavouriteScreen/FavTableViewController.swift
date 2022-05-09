@@ -34,8 +34,7 @@ class FavTableViewController: UITableViewController {
         super.viewDidLoad()
 
         helper = Helper()
-        favoriteList.append(Favourite(idLeague: "11", strLeague: "premierLeague", strYoutube: "asfasdf"))
-        favoriteList.append(Favourite(idLeague: "11", strLeague: "Egyptian League", strYoutube: "asfasdf"))
+        
         
         
 //        let pngImg = helper?.convertImageToPng(img: UIImage(named: "jersey")!)
