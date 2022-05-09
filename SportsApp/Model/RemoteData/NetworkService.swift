@@ -31,11 +31,11 @@ class NetworkService {
     
     
     //==========================================
-//    func fetchEventsData(id:String ,r:String,s:String ,completion : @escaping (AllEvents?, Error?)->()){
-//      AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
-     func fetchEventsData(completion : @escaping (AllEvents?, Error?)->()){
-     //  AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
-          AF.request(URLs.getEventsListURL)
+    func fetchEventsData(id:String ,r:String,s:String ,completion : @escaping (AllEvents?, Error?)->()){
+      AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+//     func fetchEventsData(completion : @escaping (AllEvents?, Error?)->()){
+//     //  AF.request(URLs.getEventsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+//          AF.request(URLs.getEventsListURL)
         
               .validate()
               .responseDecodable(of: AllEvents.self) { (response) in
@@ -60,13 +60,13 @@ class NetworkService {
    //==============================================================
     //id=4328&r=35&s=2021-2022
   //&strLeague=EFL20%Trophy
-//    func fetchResultsData(id:String ,r:String,s:String ,completion : @escaping (AllResult?, Error?)->()){
+    func fetchResultsData(id:String ,r:String,s:String ,completion : @escaping (AllResult?, Error?)->()){
+
+         AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+//    func fetchResultsData(completion : @escaping (AllResult?, Error?)->()){
 //
-//         AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
-    func fetchResultsData(completion : @escaping (AllResult?, Error?)->()){
-        
-        // AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
-       AF.request(URLs.getResultsListURL)
+//        // AF.request(URLs.getResultsListURL.appending("?id=\(id)&r=\(r)&s=\(s)"))
+//       AF.request(URLs.getResultsListURL)
             .validate()
             .responseDecodable(of: AllResult.self) { (response) in
                 print("befor result......")

@@ -98,7 +98,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
             case eventsCollection:
                 return CGSize(width: 375, height: 190)
             case resultsCollection:
-                return CGSize(width: 380, height: 107)
+                return CGSize(width: 385, height: 107)
             case teamsCollection:
                 return CGSize(width: 145, height: 150)
             default:
@@ -174,11 +174,11 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
             
             cell.teamImg.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBanner!), placeholderImage: UIImage(named: "profile"))
             
-            cell.teamImg.layer.borderWidth = 1
-            cell.teamImg.layer.masksToBounds = false
-            cell.teamImg.layer.borderColor = UIColor.black.cgColor
-            cell.teamImg.layer.cornerRadius =  cell.teamImg.frame.height/2
-            cell.teamImg.clipsToBounds = true
+//            cell.teamImg.layer.borderWidth = 1
+//            cell.teamImg.layer.masksToBounds = false
+//            cell.teamImg.layer.borderColor = UIColor.black.cgColor
+//            cell.teamImg.layer.cornerRadius =  cell.teamImg.frame.height/2
+//            cell.teamImg.clipsToBounds = true
             
             cell.layer.cornerRadius = 20
             cell.layer.masksToBounds = true
