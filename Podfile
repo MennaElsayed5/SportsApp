@@ -12,5 +12,4 @@ pod 'MarqueeLabel'
 pod 'SkeletonView'
 pod 'ProgressHUD'
 pod 'SwiftMessages'
-pod 'Kingfisher', '~> 7.0'
-end
+cend
