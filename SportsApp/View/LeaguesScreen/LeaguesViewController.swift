@@ -116,8 +116,8 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
         }else{
             cell.imgView.image = #imageLiteral(resourceName: "anonymousLogo")
         }
-        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cell.imgView.sd_imageIndicator?.startAnimatingIndicator()
+//        cell.imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+//        cell.imgView.sd_imageIndicator?.startAnimatingIndicator()
         cell.YoutubeBtn.accessibilityValue = country[indexPath.row].strYoutube
         if country[indexPath.row].strYoutube == ""{
                     cell.YoutubeBtn.isEnabled = false
@@ -132,11 +132,25 @@ class LeaguesViewController: UIViewController , UITableViewDelegate,SkeletonTabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVc = self.storyboard?.instantiateViewController(identifier: "LeaguesDetailsViewController") as! LeaguesDetailsViewController
         
-        //detailsVc.countries = country[indexPath.row]
-        
-        self.performSegue(withIdentifier: "Details", sender:self)
-        
+        detailsVc.countries = country[indexPath.row]
+        self.navigationController?.pushViewController(detailsVc, animated: true)
+//        print("leaguesViewController\(country[indexPath.row].strCountry)")
+
+//        self.performSegue(withIdentifier: "Details", sender:self)
+//
 
     }
   
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let customIndex = self.tbView?.indexPathForSelectedRow
+//        print("raddoda 7arbo2a")
+//        if let vc = segue.destination as? LeaguesDetailsViewController {
+//            print("raddoda msh 7arbo2a")
+//
+//            vc.countries = country[customIndex!.row]
+//            print("leaguesViewController\(vc.countries?.strCountry)")
+//            }
+//
+//    }
+    
 }

@@ -7,24 +7,33 @@
 
 import UIKit
 import Network
-
+import Kingfisher
+ 
 class FavTableViewController: UITableViewController {
-
+    @IBOutlet weak var labelNoFav: UILabel!
+    
     var favoriteList = Array<Favourite>()
     var helper:Helper?
     var arr = [MyEntity]()
+    var countryArr = Country()
     let monitor = NWPathMonitor()
+    var countries:Country?
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.barTintColor = .darkClouds
+        arr = DatabaseHelper.instance.getAllFavoroiteFromDB()
+        self.tableView.reloadData()
+        if (arr.isEmpty){
+            labelNoFav.isHidden = false
+        }else{
+            labelNoFav.isHidden = true
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         helper = Helper()
-        arr = DatabaseHelper.instance.getAllFavoroiteFromDB()
-        
         favoriteList.append(Favourite(idLeague: "11", strLeague: "premierLeague", strYoutube: "asfasdf"))
         favoriteList.append(Favourite(idLeague: "11", strLeague: "Egyptian League", strYoutube: "asfasdf"))
         
@@ -54,7 +63,8 @@ class FavTableViewController: UITableViewController {
         
         if let name = myRow.leagueName, let img = myRow.leagueImg{
             cell.setUpCell(str: name, img: img)
-            
+            let url = URL(string: img)
+                    cell.imgView.kf.setImage(with: url)
         }
        return cell
     }
@@ -72,18 +82,17 @@ class FavTableViewController: UITableViewController {
 //        print("done")
 //        self.tableView.reloadData()
       
-        
-        /*let queue = DispatchQueue(label: "InternetConnectionMonitor")
-        monitor.start(queue: queue)
-        monitor.pathUpdateHandler = { pathUpdateHandler in
-            if pathUpdateHandler.status == .satisfied {
-                print("Internet connection is on.")
-            } else {
-                print("There's no internet connection.")
-            }
-        }*/
         if Network.shared.isConnected {
-            helper?.showMessage(message: "done", error: false)
+            
+            let detailsScreen = self.storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as! LeaguesDetailsViewController
+            countryArr.idLeague = arr[indexPath.row].idLeague
+            countryArr.strCountry = arr[indexPath.row].strCountry
+            countryArr.strLeague = arr[indexPath.row].leagueName
+            countryArr.strYoutube = arr[indexPath.row].leagueUrl
+            
+            detailsScreen.countries = countryArr
+            print(countryArr.idLeague)
+            self.navigationController?.pushViewController(detailsScreen, animated: true)
         }else{
             helper?.showMessage(message: "erorr", error: true)
         }
@@ -93,9 +102,19 @@ class FavTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        DatabaseHelper.instance.deleteSpecificLeague(league: arr[indexPath.row])
-        arr.remove(at: indexPath.row)
-        self.tableView.reloadData()
+       
+        do {
+            try DatabaseHelper.instance.deleteSpecificLeague(leagueID: arr[indexPath.row].idLeague!)
+            arr.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            
+        } catch {
+            print("error deleting fav")
+        }
+        if arr.count < 1 {
+            labelNoFav.isHidden = false
+        }
+        
     }
     
     deinit{

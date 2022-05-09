@@ -16,12 +16,14 @@ class DatabaseHelper {
     
     
     
-    func saveFavoriteLeagueIntoDB(newLeague:String, img:Data, leagueUrl:String){
+    func saveFavoriteLeagueIntoDB(country:Country){
         
         let league = NSEntityDescription.insertNewObject(forEntityName: "MyEntity", into: context) as! MyEntity
-        league.leagueName = newLeague
-        league.leagueUrl = leagueUrl
-        league.leagueImg = img
+        league.leagueName = country.strLeague ?? ""
+        league.leagueUrl = country.strYoutube ?? ""
+        league.leagueImg = country.strBadge ?? ""
+        league.idLeague = country.idLeague ?? ""
+        league.strCountry = country.strCountry ?? ""
         do {
             try context.save()
         } catch let error {
@@ -44,12 +46,23 @@ class DatabaseHelper {
         return favLeagues
     }
     
-    func deleteSpecificLeague(league:MyEntity){
-        context.delete(league)
-        do {
-            try context.save()
-        } catch let error {
-            print(error.localizedDescription)
+    func deleteSpecificLeague(leagueID:String)throws{
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MyEntity")
+        let myPredicate = NSPredicate(format: "idLeague == %@", leagueID)
+        fetchRequest.predicate = myPredicate
+        do{
+            let leagueList = try context.fetch(fetchRequest)
+            for league in leagueList{
+                context.delete(league)
+            }
+            try self.context.save()
+        }catch let error as NSError{
+            throw error
         }
     }
+    
+    
+    
+    
 }

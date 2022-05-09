@@ -14,25 +14,45 @@ class TeamDetailsViewController: UIViewController {
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var myCard: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var labelStrTeam: UILabel!
+    @IBOutlet weak var labelStrStadium: UILabel!
+    @IBOutlet weak var labelStrLeague: UILabel!
+    @IBOutlet weak var labelStrYear: UILabel!
+    @IBOutlet weak var labelStrCountry: UILabel!
     @IBOutlet weak var jerseyImgV: UIImageView!
+    @IBOutlet weak var lblStrLeague: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(teamsDetails?.strCountry)
-        logoImgV.image = UIImage(named: "alahlyLogo")
-        stadiumImgV.image = UIImage(named: "stadium")
-        jerseyImgV.image = UIImage(named: "jersey")
         
         
-        view.addSubview(scrollView)
-        scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        txtView.text = teamsDetails?.strDescriptionEN
+        txtViewHeight.constant = txtView.contentSize.height
+        txtView.isScrollEnabled = true
+        
+        
+        var url = URL(string: (teamsDetails?.strTeamBadge)!)
+        logoImgV.kf.setImage(with: url)
+        labelStrTeam.text = (teamsDetails?.strTeam) ?? "Team"
+        labelStrLeague.text = (teamsDetails?.strLeague) ?? "League"
+        labelStrStadium.text = "\(teamsDetails?.strStadium! ?? "") Stadium"
+        url = URL(string: (teamsDetails?.strStadiumThumb)!)
+        stadiumImgV.kf.setImage(with: url)
+        url = URL(string: (teamsDetails?.strTeamJersey)!)
+        jerseyImgV.kf.setImage(with: url)
+        labelStrLeague.text = "\(teamsDetails?.strLeague! ?? "")"
+        lblStrLeague.text = "League: \(teamsDetails?.strLeague! ?? "")"
+        labelStrYear.text = ("Since: \(teamsDetails?.intFormedYear! ?? "")")
+        labelStrCountry.text = "Country: \(teamsDetails?.strCountry! ?? "")"
+        
+//        view.addSubview(scrollView)
+//        scrollView.isScrollEnabled = true
         myCard.layer.shadowColor = UIColor.gray.cgColor
         myCard.layer.shadowRadius = 10.0
         myCard.layer.shadowOpacity = 0.9
         
-        txtView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
-        txtViewHeight.constant = txtView.contentSize.height
+        
         
     }
     

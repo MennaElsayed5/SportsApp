@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.1)
+  - Kingfisher (7.2.1)
   - lottie-ios (3.3.0)
   - MarqueeLabel (4.3.0)
   - ProgressHUD (13.6)
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher (~> 7.0)
   - lottie-ios
   - MarqueeLabel
   - ProgressHUD
@@ -25,6 +27,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - lottie-ios
     - MarqueeLabel
     - ProgressHUD
@@ -35,6 +38,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   MarqueeLabel: 02f5ac8fd6877c94564556cb93fa86c70c08baeb
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
@@ -43,6 +47,6 @@ SPEC CHECKSUMS:
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
 
-PODFILE CHECKSUM: 9e344b64c891a2b191366f14a3c686c50494f5e9
+PODFILE CHECKSUM: 76dcd85cd54b86823d6eee7f92528ac74b778916
 
 COCOAPODS: 1.11.3

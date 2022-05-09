@@ -14,10 +14,11 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     var teams:[Teams]=[Teams]()
     var results:[Results]=[Results]()
     var events :[Events] = [Events]()
-    
+    var countries :Country?
     let teamsViewModel = TeamsViewModel()
     let resultsViewModel = ResultsViewModel ()
     let eventsViewModel = EventsViewModel()
+    var helper = Helper()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var resultsCollection: UICollectionView!
@@ -36,7 +37,6 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     }
     //========================
     func onFailUpdateView(){
-        print("error teams")
 //
 //        let alert = UIAlertController(title: "Teams Error", message: teamsViewModel.showError, preferredStyle: .alert)
 //
@@ -140,7 +140,6 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
             cell.eventDate.text = events[indexPath.row].dateEvent
             cell.eventTime.text = events[indexPath.row].strTime
             cell.strThumb.sd_setImage(with: URL(string: events[indexPath.row].strThumb!), placeholderImage: UIImage(named: "7"))
-            print("hello from events")
             return cell
             
           //Results
@@ -231,7 +230,8 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
+        setNavigationItem()
+        
                scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1700)
         view.addSubview(scrollView)
@@ -283,6 +283,48 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     }
     //=======================================
    
-   
+    func setNavigationItem() {
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "heart"), style: .plain, target: self, action: #selector(addTapped))
+
+        if checkIsFavorite(leagueId: (countries?.idLeague)!) {
+            self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        }else {
+            self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        
+        }
+    
+        }
+        
+     
+        @objc func addTapped() {
+           
+            if checkIsFavorite(leagueId: (countries?.idLeague)!) {
+                do{
+                    try DatabaseHelper.instance.deleteSpecificLeague(leagueID: (countries?.idLeague)!)
+                    self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+                    helper.showMessage(message: "Succesfully Deleted from Favourite", error: false)
+                }catch {
+                    print("error")
+                }
+            }else {
+                DatabaseHelper.instance.saveFavoriteLeagueIntoDB(country: countries!)
+                helper.showMessage(message: "Succesfully added to Favourite", error: false)
+                self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            }
+        }
+    
+    func checkIsFavorite(leagueId:String) -> Bool{
+        
+        let favElements = DatabaseHelper.instance.getAllFavoroiteFromDB()
+        
+        for item in favElements {
+            if(leagueId == item.idLeague){
+                self.navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                return true
+            }
+        }
+        return false
+    }
 }
 

@@ -12,12 +12,10 @@ struct CountriesResponse: Codable {
 
 
 struct Country: Codable {
-    let idLeague:String?
-    let strLeague: String?
-    let strSport: String?
-    let strCountry: String?
-    let strLogo:String?
-    let strBadge:String?
-    let strYoutube :String?
+    var idLeague:String?
+    var strLeague: String?
+    var strCountry: String?
+    var strBadge:String?
+    var strYoutube :String?
     
 }

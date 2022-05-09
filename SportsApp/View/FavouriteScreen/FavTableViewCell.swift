@@ -23,8 +23,8 @@ class FavTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setUpCell(str:String, img:Data){
+    func setUpCell(str:String, img:String){
         txtFavLeague.text = str
-        imgView.image = UIImage(data: img)
+        imgView.image = UIImage(named: img)
     }
 }
