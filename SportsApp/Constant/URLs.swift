@@ -14,17 +14,17 @@ struct URLs{
     
     //Results
     public static var getResultsListURL : String =
-    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php"
-//   "https://www.thesportsdb.com/api/v1/json/2/eventsround.php?id=4328&r=35&s=2021-2022"
+//    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php"
+   "https://www.thesportsdb.com/api/v1/json/2/eventsround.php?id=4328&r=35&s=2021-2022"
  
  
     
     //Events
     public static var getEventsListURL : String =
     
-//    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php?id=4328&r=38&s=2021-2022"
-    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php"
-    
+    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php?id=4328&r=38&s=2021-2022"
+//    "https://www.thesportsdb.com/api/v1/json/2/eventsround.php"
+//
     static let leaguesUrl : String = "https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php"
 
     public static var getSportsURL = "https://www.thesportsdb.com/api/v1/json/2/all_sports.php"

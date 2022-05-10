@@ -10,7 +10,8 @@ import UIKit
 
 class EventsViewModel: NSObject {
     var networkService :NetworkService!
-    
+    var countries :Country?
+
     var eventData :AllEvents!{
         didSet{
             
@@ -36,16 +37,17 @@ class EventsViewModel: NSObject {
         
         super.init()
         self.networkService = NetworkService()
-        self.fetchEventDataFromAPI()
+      self.fetchEventDataFromAPI()
     }
 //==================================================
     func fetchEventDataFromAPI (){
         //id=4328&r=35&s=2021-2022
         //  guard let var1 = sportsCountry else {return}
        //print(var1.strSport!)
-        networkService.fetchEventsData(id:"4328",r:"38",s:"2021-2022", completion:  { (eventData, error) in
-//        networkService.fetchEventsData(completion:  { (eventData, error) in
-//
+//        guard let var1 = countries else {return}
+//        networkService.fetchEventsData(id:"4647",r:"38",s:"2021-2022", completion:  { (eventData, error) in
+        networkService.fetchEventsData(completion:  { (eventData, error) in
+
             if let error : Error = error{
                 
                 let message = error.localizedDescription

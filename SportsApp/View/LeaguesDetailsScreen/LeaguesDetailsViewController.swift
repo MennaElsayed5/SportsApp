@@ -20,6 +20,25 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     let eventsViewModel = EventsViewModel()
     var helper = Helper()
     
+    
+//    var viewModel:ResultsViewModel!{
+//        didSet{
+//            guard let var1 = countries else {return}
+//            viewModel.countries = var1
+//            viewModel.fetchResultsDataFromAPI()
+//            print("id leagues of result\(var1.idLeague!)")
+////            print(var1.strCountry!)
+//        }
+//    }
+//    var eventViewModel:EventsViewModel!{
+//        didSet{
+//            guard let var1 = countries else {return}
+//            eventViewModel.countries = var1
+//            eventViewModel.fetchEventDataFromAPI()
+//            print("id leagues of eve\(var1.idLeague!)")
+////            print(var1.strCountry!)
+//        }
+//    }
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var resultsCollection: UICollectionView!
     @IBOutlet weak var eventsCollection: UICollectionView!
@@ -229,7 +248,7 @@ class LeaguesDetailsViewController: UIViewController ,UICollectionViewDelegate,U
     //==================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(countries?.strLeague)
         setNavigationItem()
         
                scrollView.isScrollEnabled = true
