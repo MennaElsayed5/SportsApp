@@ -10,8 +10,7 @@ import UIKit
 
 class ResultsViewModel: NSObject {
     var networkService :NetworkService!
-    var countries :Country?
-
+    
     var resultData :AllResult! {
         didSet{
             
@@ -37,17 +36,13 @@ class ResultsViewModel: NSObject {
         
         super .init()
         self.networkService = NetworkService()
-       self.fetchResultsDataFromAPI()
+        self.fetchResultsDataFromAPI()
     }
 //==================================================
     func fetchResultsDataFromAPI (){
-     
      //id=4328&r=35&s=2021-2022
         //  //&strLeague=EFL20%Trophy
-        guard let var1 = countries else {return}
-        
-        print("id leagues of result\(var1.idLeague!)")
-//        networkService.fetchResultsData(id:"4328",r:"35",s:"2021-2022", completion: { (resultsData, error) in
+//        networkService.fetchResultsData(id:"1154268",r:"35",s:"2021-2022", completion: { (resultsData, error) in
         networkService.fetchResultsData(completion: { (resultsData, error) in
 
             
